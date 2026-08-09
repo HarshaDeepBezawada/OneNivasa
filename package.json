@@ -1,0 +1,12 @@
+{
+  "name": "niva-proptech-platform",
+  "version": "1.0.0",
+  "description": "NIVA Gated Community Digital Operating System Platform Prototype",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "author": "NIVA Teams",
+  "license": "MIT"
+}

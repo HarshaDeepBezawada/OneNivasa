@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OneNivasa | Everything your community needs. One platform.</title>
+  
+  <!-- Font Family: Inter & Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+  
+  <!-- CSS Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+  
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+  <!-- ==================================================
+       1. PUBLIC LANDING VIEW
+       ================================================== -->
+  <div id="landing-page">
+    <nav class="landing-nav">
+      <div class="logo-container" style="font-family: 'Outfit', sans-serif;">
+        <div class="logo-icon" style="border-radius: 8px;">ON</div>
+        <span>OneNivasa</span>
+      </div>
+      <div class="landing-links">
+        <a href="#why-onenivasa" class="landing-link">Why OneNivasa?</a>
+        <a href="#for-residents" class="landing-link">For Residents</a>
+        <a href="#for-communities" class="landing-link">For Communities</a>
+        <a href="#onenivasa-ai-info" class="landing-link">NIVA AI</a>
+      </div>
+      <div>
+        <button class="btn btn-secondary" style="box-shadow: none;" onclick="showLoginView()">Sign In</button>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="landing-hero">
+      <div class="landing-badge" style="letter-spacing: 0.1em;">BZA Tech Solutions</div>
+      <h1 style="font-family: 'Outfit', sans-serif;">Everything your community needs.<br><span class="text-accent">One unified platform.</span></h1>
+      <p>OneNivasa is the digital operating system for modern gated communities. Simplify visitor checks, track daily domestic help, book facilities, pay maintenance bills, and access on-demand doorstep utilities.</p>
+      <div class="hero-btns">
+        <button class="btn btn-primary btn-lg" onclick="showLoginView()">Get Started</button>
+        <button class="btn btn-secondary btn-lg" onclick="showLoginView('admin')">Explore Admin Panel</button>
+      </div>
+    </section>
+
+
+
+    <!-- Why OneNivasa -->
+    <section id="why-onenivasa" class="landing-section alt">
+      <div class="section-header">
+        <h2>A modern operating system for community living</h2>
+        <p>Traditional complexes run on fragmented chat groups, paper log registers, and legacy portals. OneNivasa unifies gate security, bills payments, and utility services in a clean SaaS layout.</p>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon-wrapper"><i data-lucide="shield-check"></i></div>
+          <h3>Ironclad Gate Security</h3>
+          <p>Instant notifications when visitors arrive. Generate pre-approved guest codes, secure delivery gate passes, and track child safety checks.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon-wrapper"><i data-lucide="user-check"></i></div>
+          <h3>Domestic Staff Manager</h3>
+          <p>Track attendance of your daily helpers, maids, drivers, or cooks. Receive alerts immediately upon their entry or exit at the checkpoints.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon-wrapper"><i data-lucide="credit-card"></i></div>
+          <h3>Society Fintech Dues</h3>
+          <p>Pay maintenance invoices, view ledger statements, track pending dues, and receive official receipts digitally.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Role Section Showcase -->
+    <section id="for-residents" class="landing-section">
+      <div class="section-header">
+        <div class="landing-badge">Connect Ecosystem</div>
+        <h2>One platform. Four interfaces.</h2>
+        <p>Custom panels tailored specifically to the daily workflows of residents, property management committees, security guards, and local vendors.</p>
+      </div>
+      <div class="role-tabs">
+        <div class="role-tab-item active" onclick="switchLandingRole('resident')">Residents</div>
+        <div class="role-tab-item" onclick="switchLandingRole('admin')">Property Managers</div>
+        <div class="role-tab-item" onclick="switchLandingRole('security')">Gate Security</div>
+        <div class="role-tab-item" onclick="switchLandingRole('provider')">Service Vendors</div>
+      </div>
+      <div class="role-preview-card" id="landing-role-preview">
+        <!-- Swapped dynamically by JS -->
+      </div>
+    </section>
+
+    <!-- NIVA AI Promo Section -->
+    <section id="onenivasa-ai-info" class="landing-section alt">
+      <div class="section-header">
+        <div class="landing-badge">NIVA AI</div>
+        <h2>Conversational PropTech Assistant</h2>
+        <p>Book courts, request utility services, invite guests, or review society alerts in a simple interactive chat dialogue.</p>
+      </div>
+      <div style="max-width: 600px; margin: 0 auto; background: var(--surface); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 24px; box-shadow: var(--shadow-lg);">
+        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px; border-bottom: 1px solid var(--border-color); padding-bottom: 12px;">
+          <div style="background: var(--accent-light); color: var(--accent); padding: 8px; border-radius: 50%;"><i data-lucide="sparkles"></i></div>
+          <div>
+            <h4 style="font-size: 14px; font-weight: 700;">NIVA AI Bot</h4>
+            <p style="font-size: 11px; color: var(--text-muted);">Online society dispatcher</p>
+          </div>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 12px;">
+          <div style="background: var(--bg-app); padding: 12px; border-radius: 12px 12px 12px 2px; align-self: flex-start; font-size: 13px; max-width: 80%;">
+            Hi Rahul! I can see that your outstanding Maintenance Bill of ₹4,500 is due. Would you like me to open the payment drawer?
+            <div style="margin-top: 8px; display: flex; gap: 6px;">
+              <button class="btn btn-primary btn-sm" onclick="showLoginView('resident')">Yes, Open Drawer</button>
+              <button class="btn btn-secondary btn-sm" onclick="showLoginView('resident')">Show Breakdown</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+    <!-- CTA Section -->
+    <section class="landing-cta">
+      <div class="landing-cta-content">
+        <h2 style="font-family: 'Outfit', sans-serif;">Digitize your gated community today</h2>
+        <p>Deploy OneNivasa in your housing complex. Upgrade security clearance gates, automate ledger accounts, and provide high-fidelity systems to residents.</p>
+        <button class="btn btn-secondary btn-lg" style="color:var(--primary);" onclick="showLoginView()">Configure OneNivasa</button>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="landing-footer">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="logo-container" style="font-family: 'Outfit', sans-serif;">
+            <div class="logo-icon">ON</div>
+            <span>OneNivasa</span>
+          </div>
+          <p>Everything your community needs. One unified cloud platform.</p>
+        </div>
+        <div class="footer-cols">
+          <h4>Platform</h4>
+          <ul class="footer-links">
+            <li class="footer-link"><a href="#why-onenivasa">Gate Security</a></li>
+            <li class="footer-link"><a href="#why-onenivasa">Daily Helpers Log</a></li>
+            <li class="footer-link"><a href="#onenivasa-ai-info">NIVA AI Assistant</a></li>
+          </ul>
+        </div>
+        <div class="footer-cols">
+          <h4>Dashboards</h4>
+          <ul class="footer-links">
+            <li class="footer-link"><a href="#" onclick="showLoginView('resident')">Resident Portal</a></li>
+            <li class="footer-link"><a href="#" onclick="showLoginView('admin')">Property Managers</a></li>
+            <li class="footer-link"><a href="#" onclick="showLoginView('security')">Gate Staff Terminal</a></li>
+          </ul>
+        </div>
+        <div class="footer-cols">
+          <h4>Company</h4>
+          <ul class="footer-links">
+            <li class="footer-link"><a href="#">Privacy Policy</a></li>
+            <li class="footer-link"><a href="#">Terms of Use</a></li>
+            <li class="footer-link"><a href="#">Sales Desk</a></li>
+          </ul>
+        </div>
+        <div class="footer-cols">
+          <h4>Apartment Specifications</h4>
+          <ul class="footer-links" style="font-size: 0.8125rem; color: var(--text-muted); line-height: 1.6; list-style:none;">
+            <li style="margin-bottom: 8px;"><strong>Governed By:</strong> OneNivasa Resident Welfare Association (RWA)</li>
+            <li style="margin-bottom: 8px;"><strong>Built & Completed:</strong> Oct 2022</li>
+            <li style="margin-bottom: 8px;"><strong>Front Desk:</strong> +91 80 4967 8000</li>
+            <li><strong>Email Desk:</strong> board@onenivasa.in</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 OneNivasa Platforms Inc. All rights reserved.</span>
+        <span>Startup PropTech Enterprise Standards.</span>
+      </div>
+    </footer>
+  </div>
+
+
+  <!-- ==================================================
+       2. AUTHENTICATION & LOGIN EXPERIENCE
+       ================================================== -->
+  <div id="login-page" style="display: none;">
+    <div class="login-left">
+      <div class="login-left-logo">
+        <div class="logo-container" style="font-family: 'Outfit', sans-serif;">
+          <div class="logo-icon" style="background:#FFF; color:var(--primary); border-radius: 8px;">ON</div>
+          <span style="color:#FFF;">OneNivasa</span>
+        </div>
+      </div>
+      <div class="login-left-content">
+        <h2 style="font-family: 'Outfit', sans-serif;">Everything your community needs.<br><span style="color:var(--accent);">One platform.</span></h2>
+        <p>Unlock a unified portal designed to simplify management, verify domestic staff check-ins, process society maintenance dues, and automate security gates.</p>
+        <div class="login-left-stats">
+          <div class="login-stat-box">
+            <div class="login-stat-num">5s</div>
+            <div class="login-stat-lbl">Gate Logs Speed</div>
+          </div>
+          <div class="login-stat-box">
+            <div class="login-stat-num">98%</div>
+            <div class="login-stat-lbl">SLA Performance</div>
+          </div>
+          <div class="login-stat-box">
+            <div class="login-stat-num">24/7</div>
+            <div class="login-stat-lbl">Helper Tracking</div>
+          </div>
+        </div>
+      </div>
+      <div class="login-left-footer">
+        <span>OneNivasa Portal Engine v3.0.0-production</span>
+      </div>
+    </div>
+    
+    <div class="login-right">
+      <div class="login-card-container">
+        <div class="login-card-header">
+          <h3>Sign In</h3>
+          <p>Choose your workspace role to sign in.</p>
+        </div>
+        
+        <div class="auth-role-tabs">
+          <button class="auth-role-tab active" onclick="switchLoginRole('resident')">Resident</button>
+          <button class="auth-role-tab" onclick="switchLoginRole('admin')">Admin</button>
+          <button class="auth-role-tab" onclick="switchLoginRole('security')">Security</button>
+        </div>
+
+        <!-- Resident Login Form -->
+        <div class="auth-form active" id="form-resident">
+          <div class="grid-2">
+            <div class="form-group">
+              <label class="form-label">Resident Full Name</label>
+              <input type="text" class="form-input" id="resident-name" placeholder="E.g., Ashok Kumar" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Assigned Flat/Block</label>
+              <input type="text" class="form-input" id="resident-flat" placeholder="E.g., Block B-204" required>
+            </div>
+          </div>
+          <div class="grid-2">
+            <div class="form-group">
+              <label class="form-label">Car Plate Number</label>
+              <input type="text" class="form-input" id="resident-car-plate" placeholder="E.g., KA-03-MY-8890 (Car)" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Bike Plate Number</label>
+              <input type="text" class="form-input" id="resident-bike-plate" placeholder="E.g., KA-03-BK-4560 (Bike)" required>
+            </div>
+          </div>
+          <div class="grid-2">
+            <div class="form-group">
+              <label class="form-label">Mobile Number</label>
+              <input type="text" class="form-input" id="resident-phone" placeholder="Enter +91 mobile" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Email Address</label>
+              <input type="email" class="form-input" id="resident-email" placeholder="E.g., ashok@onenivasa.in" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Password</label>
+            <input type="password" class="form-input" id="resident-pass" placeholder="••••••••" required>
+          </div>
+          <button class="btn btn-primary btn-lg" style="width: 100%; margin-top: 10px;" onclick="submitResidentLogin()">Sign In as Resident</button>
+        </div>
+
+        <!-- Admin Login Form -->
+        <div class="auth-form" id="form-admin">
+          <div class="form-group">
+            <label class="form-label">Administrator Full Name</label>
+            <input type="text" class="form-input" id="admin-name" placeholder="E.g., Pradeep Hegde" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Administrator Email</label>
+            <input type="email" class="form-input" id="admin-user" placeholder="E.g., admin@onenivasa.in" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Password</label>
+            <input type="password" class="form-input" id="admin-pass" placeholder="••••••••" required>
+          </div>
+          <button class="btn btn-primary btn-lg" style="width: 100%; margin-top: 10px;" onclick="submitAdminLogin()">Sign In as Admin</button>
+        </div>
+
+        <!-- Security Login Form -->
+        <div class="auth-form" id="form-security">
+          <div class="form-group">
+            <label class="form-label">Security Guard Name</label>
+            <input type="text" class="form-input" id="security-name" placeholder="E.g., Guard Shivappa" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Gate Employee ID</label>
+            <input type="text" class="form-input" id="security-id" placeholder="E.g., EMP-GATE-01" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Gate Pass PIN</label>
+            <input type="password" class="form-input" id="security-pin" placeholder="E.g., 1234" required>
+          </div>
+          <button class="btn btn-primary btn-lg" style="width: 100%; margin-top: 10px;" onclick="submitSecurityLogin()">Verify Security Terminal</button>
+        </div>
+
+
+
+
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ==================================================
+       3. APPLICATION SHELL LAYOUT
+       ================================================== -->
+  <div id="app-layout">
+    
+    <!-- LEFT PERSISTENT SIDEBAR -->
+    <aside>
+      <div class="sidebar-header">
+        <div class="logo-container" style="font-family: 'Outfit', sans-serif;">
+          <div class="logo-icon">ON</div>
+          <span>OneNivasa</span>
+        </div>
+        <button class="btn btn-text btn-icon-only" onclick="exitToLanding()" title="Log out to landing"><i data-lucide="log-out" style="width: 16px;"></i></button>
+      </div>
+      
+      <div class="sidebar-nav-container no-scrollbar" id="sidebar-nav-links">
+        <!-- Rendered dynamically by app.js depending on login role -->
+      </div>
+      
+      <div class="sidebar-footer" style="display: none !important;">
+        <div class="user-profile-widget" onclick="toggleProfileDropdown()">
+          <img class="user-avatar" id="sidebar-user-avatar" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=60" alt="Avatar">
+          <div class="user-info">
+            <span class="user-name" id="sidebar-user-name">Rahul Sharma</span>
+            <span class="user-meta" id="sidebar-user-flat">Block B-204</span>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- RIGHT PAGE MAIN BODY -->
+    <main>
+      
+      <!-- FIXED TOP NAVBAR -->
+      <header class="app-header">
+        <div class="header-left">
+          <button class="mobile-toggle" onclick="toggleMobileSidebar()"><i data-lucide="menu"></i></button>
+          <span class="page-title" id="navbar-page-title">Home Dashboard</span>
+        </div>
+        
+        <div class="header-center">
+          <div class="global-search-container">
+            <i class="global-search-icon" data-lucide="search" style="width: 18px;"></i>
+            <input type="text" class="global-search-input" id="global-search" placeholder="Search services, facilities, daily helper status..." oninput="handleGlobalSearch(this.value)" onfocus="showSearchResults()" onblur="hideSearchResultsDelayed()">
+            
+            <!-- Global Search Dropdown Results -->
+            <div class="search-results-dropdown no-scrollbar" id="search-results-panel">
+              <!-- Rendered Dynamically by JS -->
+            </div>
+          </div>
+        </div>
+        
+        <div class="header-right">
+          <!-- Notification Bell Dropdown wrapper -->
+          <div class="nav-actions-container">
+            <button class="notifications-trigger" onclick="toggleNotificationsDropdown()">
+              <i data-lucide="bell" style="width: 20px;"></i>
+              <div class="notifications-badge" id="noti-indicator"></div>
+            </button>
+            <div class="notifications-dropdown" id="notifications-panel">
+              <div class="notification-dropdown-header">
+                <h4>Notifications</h4>
+                <button class="btn btn-text btn-sm" onclick="markAllNotificationsAsRead()">Clear All</button>
+              </div>
+              <div class="notification-dropdown-body no-scrollbar" id="notifications-list-container">
+                <!-- Rendered dynamically -->
+              </div>
+            </div>
+          </div>
+
+          <!-- User dropdown wrapper -->
+          <div class="nav-actions-container">
+            <img class="user-avatar" style="cursor: pointer;" id="navbar-user-avatar" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=60" alt="Profile" onclick="toggleProfileDropdown()">
+            <div class="profile-menu-dropdown" id="profile-dropdown-panel">
+              <div class="profile-menu-header">
+                <div class="font-semibold" id="dropdown-user-name">Rahul Sharma</div>
+                <div class="text-muted" style="font-size: 11px;" id="dropdown-user-role">Resident (Block B-204)</div>
+              </div>
+              <div class="profile-menu-item" onclick="navigateToPanel('profile')"><i data-lucide="user" style="width: 16px;"></i> My Profile</div>
+              <div class="profile-menu-item" onclick="navigateToPanel('settings')"><i data-lucide="settings" style="width: 16px;"></i> Account Settings</div>
+              <div class="profile-menu-item danger" onclick="logoutUser()"><i data-lucide="log-out" style="width: 16px;"></i> Log Out</div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- DYNAMIC CORE CONTENT PANELS -->
+      <div class="main-content no-scrollbar" id="main-panel">
+        <!-- Injected dynamically by app.js -->
+      </div>
+    </main>
+  </div>
+
+
+  <!-- ==================================================
+       4. GLOBAL EMERGENCY HOTBAR BUTTON & POPUP
+       ================================================== -->
+  <button id="floating-emergency-btn" style="position: fixed; bottom: 24px; right: 24px; z-index: 999; background: var(--danger); color: white; border: none; padding: 12px 18px; border-radius: var(--radius-full); font-weight: 700; box-shadow: 0 4px 12px rgba(239,68,68,0.4); display: none; align-items: center; gap: 8px; cursor: pointer;">
+    <i data-lucide="alert-triangle"></i> EMERGENCY
+  </button>
+
+  <div id="emergency-overlay">
+    <div class="emergency-card">
+      <div class="emergency-icon"><i data-lucide="alert-triangle" style="width: 36px; height: 36px;"></i></div>
+      <div id="emergency-initial-view">
+        <h2 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 8px;">Emergency Dispatch</h2>
+        <p class="text-muted" style="font-size: 0.875rem; margin-bottom: 20px;">Select the emergency type to trigger an immediate gate alert and notify security staff.</p>
+        
+        <div class="emergency-grid">
+          <button class="emergency-option-btn" onclick="selectEmergencyType('medical')"><i data-lucide="heart-pulse"></i> Medical</button>
+          <button class="emergency-option-btn" onclick="selectEmergencyType('fire')"><i data-lucide="flame"></i> Fire Hazard</button>
+          <button class="emergency-option-btn" onclick="selectEmergencyType('security')"><i data-lucide="shield-alert"></i> Security Threat</button>
+          <button class="emergency-option-btn" onclick="selectEmergencyType('utility')"><i data-lucide="droplet"></i> Lift / Utility</button>
+        </div>
+        
+        <button class="emergency-trigger-btn" id="btn-trigger-panic" onclick="triggerPanicAlert()">CONFIRM PANIC ALERT</button>
+        <div style="margin-top: 16px;">
+          <button class="emergency-cancel-btn" onclick="closeEmergencyModal()">Cancel and Close</button>
+        </div>
+      </div>
+
+      <div id="emergency-countdown-view" style="display: none;">
+        <h2 style="font-size: 1.5rem; font-weight: 700;">Broadcasting Security Alert...</h2>
+        <p class="text-muted" style="font-size: 0.875rem; margin-bottom: 24px;">Security gate staff and emergency monitors are being notified in real-time.</p>
+        <div class="emergency-countdown-display">
+          <div class="countdown-number" id="panic-countdown-timer">5</div>
+          <span style="font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700; color: var(--text-muted);">Seconds to cancel auto-dispatch</span>
+        </div>
+        <button class="btn btn-secondary btn-lg" style="width:100%; border-color:var(--danger); color:var(--danger); margin-top:28px;" onclick="cancelPanicAlert()">ABORT DISPATCH</button>
+      </div>
+
+      <div id="emergency-broadcast-view" style="display: none;">
+        <h2 class="text-danger" style="font-size: 1.5rem; font-weight: 800;">ALARM DISPATCHED</h2>
+        <p style="font-size: 0.875rem; margin-bottom: 20px;">Gate security staff have accepted your alert and are dispatching responders to your flat.</p>
+        <div style="background:var(--danger-light); color:var(--danger); border:1px solid rgba(239,68,68,0.2); padding:16px; border-radius:var(--radius-md); font-size:0.8125rem; font-weight:600; width:100%; text-align:left; margin-bottom:20px;">
+          <div style="display:flex; justify-content:space-between; margin-bottom:8px;">
+            <span>Emergency Type:</span>
+            <span id="dispatched-type-lbl" style="text-transform:uppercase;">MEDICAL</span>
+          </div>
+          <div style="display:flex; justify-content:space-between; margin-bottom:8px;">
+            <span>Dispatched Unit:</span>
+            <span>Gate 1 Security Unit</span>
+          </div>
+          <div style="display:flex; justify-content:space-between;">
+            <span>Estimated Arrival:</span>
+            <span>2 - 4 mins</span>
+          </div>
+        </div>
+        <button class="btn btn-secondary btn-lg" style="width:100%;" onclick="closeEmergencyModal()">Close Panel</button>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ==================================================
+       5. MODAL SYSTEM CONTAINERS
+       ================================================== -->
+  
+  <!-- Facility Booking Modal -->
+  <div class="modal-overlay" id="modal-facility-booking">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 id="facility-booking-title">Book Badminton Court</h3>
+        <button class="btn btn-text btn-icon-only" onclick="closeModal('modal-facility-booking')"><i data-lucide="x"></i></button>
+      </div>
+      <div class="modal-body">
+        <div class="facility-booking-calendar">
+          <div class="form-group">
+            <label class="form-label">Select Date</label>
+            <input type="date" class="form-input" id="facility-booking-date" value="2026-08-09">
+          </div>
+          <div>
+            <label class="form-label">Available Slots (1 Hour Slots)</label>
+            <div class="slots-grid" id="facility-slots-container" style="margin-top: 8px;">
+              <!-- JS rendered slot buttons -->
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" onclick="closeModal('modal-facility-booking')">Cancel</button>
+        <button class="btn btn-primary" id="btn-confirm-facility-booking">Confirm Booking</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Service Provider Details & Booking Flow Modal -->
+  <div class="modal-overlay" id="modal-service-booking">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 id="service-booking-title">Service Details</h3>
+        <button class="btn btn-text btn-icon-only" onclick="closeModal('modal-service-booking')"><i data-lucide="x"></i></button>
+      </div>
+      <div class="modal-body">
+        <div class="service-detail-container" id="service-detail-body">
+          <!-- Rendered dynamically -->
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" onclick="closeModal('modal-service-booking')">Cancel</button>
+        <button class="btn btn-primary" id="btn-confirm-service-booking">Book Service Now</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Visitor Pass Generation Modal -->
+  <div class="modal-overlay" id="modal-visitor-pass">
+    <div class="modal-card" style="max-width: 440px;">
+      <div class="modal-header">
+        <h3>Digital Visitor Pass</h3>
+        <button class="btn btn-text btn-icon-only" onclick="closeModal('modal-visitor-pass')"><i data-lucide="x"></i></button>
+      </div>
+      <div class="modal-body">
+        <div class="visitor-pass-modal-content" id="visitor-pass-card-body">
+          <!-- Rendered dynamically -->
+        </div>
+      </div>
+      <div class="modal-footer" style="justify-content: center;">
+        <button class="btn btn-primary" style="width: 100%;" onclick="closeModal('modal-visitor-pass')">Done</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Create Visitor Invite Modal -->
+  <div class="modal-overlay" id="modal-invite-visitor">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3>Invite Guest</h3>
+        <button class="btn btn-text btn-icon-only" onclick="closeModal('modal-invite-visitor')"><i data-lucide="x"></i></button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label class="form-label">Visitor Full Name</label>
+          <input type="text" class="form-input" id="visitor-form-name" placeholder="E.g., Arjun Verma">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Mobile Number</label>
+          <input type="text" class="form-input" id="visitor-form-phone" placeholder="E.g., +91 98765 XXXXX">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Purpose of Visit</label>
+          <select class="form-select" id="visitor-form-purpose">
+            <option value="Guest">Guest / Friend</option>
+            <option value="Delivery">Delivery (Amazon, Zomato etc.)</option>
+            <option value="Service">Service / Utility Worker</option>
+            <option value="Cab">Cab Pickup / Dropoff</option>
+          </select>
+        </div>
+        <div class="grid-2">
+          <div class="form-group">
+            <label class="form-label">Date</label>
+            <input type="date" class="form-input" id="visitor-form-date" value="2026-08-09">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Time</label>
+            <input type="time" class="form-input" id="visitor-form-time" value="19:30">
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" onclick="closeModal('modal-invite-visitor')">Cancel</button>
+        <button class="btn btn-primary" onclick="submitVisitorInvitation()">Generate QR Pass</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Raise Request Ticket Modal -->
+  <div class="modal-overlay" id="modal-create-request">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3>Raise Maintenance Request</h3>
+        <button class="btn btn-text btn-icon-only" onclick="closeModal('modal-create-request')"><i data-lucide="x"></i></button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label class="form-label">Request Type</label>
+          <select class="form-select" id="request-form-category">
+            <option value="Plumbing">Water Leakage / Plumbing</option>
+            <option value="Electrical">Electrical Issues</option>
+            <option value="Cleaning">Cleaning & Waste Management</option>
+            <option value="Security">Security Concern</option>
+            <option value="Lift">Lift / Elevator Malfunction</option>
+            <option value="Other">Other Maintenance</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Description of Issue</label>
+          <textarea class="form-textarea" id="request-form-desc" placeholder="Please provide specific details such as flat location, issue symptoms, urgency level..."></textarea>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" onclick="closeModal('modal-create-request')">Cancel</button>
+        <button class="btn btn-primary" onclick="submitRequestTicket()">Submit Request</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Create Marketplace Listing Modal -->
+  <div class="modal-overlay" id="modal-sell-product">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3>Sell Something on Marketplace</h3>
+        <button class="btn btn-text btn-icon-only" onclick="closeModal('modal-sell-product')"><i data-lucide="x"></i></button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label class="form-label">Product/Item Name</label>
+          <input type="text" class="form-input" id="market-form-title" placeholder="E.g., Mountain Cycle, Wooden Study Table">
+        </div>
+        <div class="grid-2">
+          <div class="form-group">
+            <label class="form-label">Type / Segment</label>
+            <select class="form-select" id="market-form-type">
+              <option value="SELL">Sell (Used/Pre-owned)</option>
+              <option value="HOMEMADE">Homemade (Meals, Crafts etc.)</option>
+              <option value="BUY">Request (Want to Buy)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Condition</label>
+            <select class="form-select" id="market-form-condition">
+              <option value="Like New">Like New</option>
+              <option value="Excellent">Excellent</option>
+              <option value="Good">Good</option>
+              <option value="Fair">Fair</option>
+            </select>
+          </div>
+        </div>
+        <div class="grid-2">
+          <div class="form-group">
+            <label class="form-label">Price (₹)</label>
+            <input type="number" class="form-input" id="market-form-price" placeholder="E.g., 2500">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Category</label>
+            <select class="form-select" id="market-form-category">
+              <option value="Electronics">Electronics</option>
+              <option value="Furniture">Furniture</option>
+              <option value="Books">Books</option>
+              <option value="Bicycles">Bicycles</option>
+              <option value="Food">Food / Homemade</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Item Description</label>
+          <textarea class="form-textarea" id="market-form-desc" placeholder="Describe the age of the item, condition level, pickup locations inside OneNivasa..."></textarea>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" onclick="closeModal('modal-sell-product')">Cancel</button>
+        <button class="btn btn-primary" onclick="submitMarketplaceListing()">Publish Listing</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mock Payment Checkout Modal -->
+  <div class="modal-overlay" id="modal-payment-checkout">
+    <div class="modal-card" style="max-width: 440px;">
+      <div class="modal-header">
+        <h3>OneNivasa Payment Ledger</h3>
+        <button class="btn btn-text btn-icon-only" onclick="closeModal('modal-payment-checkout')"><i data-lucide="x"></i></button>
+      </div>
+      <div class="modal-body">
+        <div class="payment-modal-content">
+          <div style="background:var(--bg-app); padding:16px; border-radius:var(--radius-md); text-align:center;">
+            <span class="text-muted" style="font-size: 11px; text-transform: uppercase; font-weight: 600; letter-spacing: 0.05em;">Total Invoice Amount</span>
+            <h2 style="font-size: 2rem; font-weight: 800; color: var(--primary); margin-top: 4px;" id="checkout-amount-lbl">₹4,500</h2>
+            <p style="font-size: 11px; color: var(--accent); font-weight: 500; margin-top: 4px;" id="checkout-ref-lbl">Ref: ON-MAINT-2026-AUG</p>
+          </div>
+          
+          <div>
+            <label class="form-label" style="margin-bottom:8px; display:block;">Select Payment Channel</label>
+            <div class="payment-methods-list">
+              <div class="payment-method-option selected" onclick="selectPaymentOption('upi')">
+                <div class="payment-method-lbl">
+                  <i data-lucide="smartphone"></i>
+                  <span>UPI (GPay / PhonePe / Paytm)</span>
+                </div>
+                <div class="badge badge-teal">Instant 0% Fee</div>
+              </div>
+              <div class="payment-method-option" onclick="selectPaymentOption('card')">
+                <div class="payment-method-lbl">
+                  <i data-lucide="credit-card"></i>
+                  <span>Credit / Debit Card</span>
+                </div>
+                <div style="font-size: 10px; color: var(--text-muted);">Visa/MC</div>
+              </div>
+              <div class="payment-method-option" onclick="selectPaymentOption('netbank')">
+                <div class="payment-method-lbl">
+                  <i data-lucide="landmark"></i>
+                  <span>Net Banking (SBI / HDFC / ICICI)</span>
+                </div>
+                <div style="font-size: 10px; color: var(--text-muted);">Secure</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" onclick="closeModal('modal-payment-checkout')">Cancel</button>
+        <button class="btn btn-primary" style="flex-grow: 1;" onclick="executeMockPayment()">Proceed to Pay</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Security Visitor Verification QR Check Modal -->
+  <div class="modal-overlay" id="modal-security-scanner">
+    <div class="modal-card" style="max-width: 440px;">
+      <div class="modal-header">
+        <h3>Verify Visitor Code</h3>
+        <button class="btn btn-text btn-icon-only" onclick="closeModal('modal-security-scanner')"><i data-lucide="x"></i></button>
+      </div>
+      <div class="modal-body">
+        <div class="scanner-simulation-container">
+          <div class="scanner-viewport">
+            <div class="scanner-laser-line"></div>
+            <i data-lucide="qr-code" style="width: 64px; height: 64px;"></i>
+          </div>
+          <p class="text-muted" style="font-size: 0.8125rem;">Enter visitor pass passcode to mock QR capture scan at main gate.</p>
+          <div class="form-group" style="width: 100%;">
+            <input type="text" class="form-input" id="security-scan-code-input" placeholder="Enter Code (e.g. VIS-104)" style="text-align: center; font-weight: 700; letter-spacing: 0.1em;">
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" onclick="closeModal('modal-security-scanner')">Cancel</button>
+        <button class="btn btn-primary" onclick="verifyScannedVisitorCode()">Scan Passcode</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Security Gate Verification Action Modal -->
+  <div class="modal-overlay" id="modal-visitor-allow-deny">
+    <div class="modal-card" style="max-width: 440px;">
+      <div class="modal-header">
+        <h3>Visitor Validation Details</h3>
+        <button class="btn btn-text btn-icon-only" onclick="closeModal('modal-visitor-allow-deny')"><i data-lucide="x"></i></button>
+      </div>
+      <div class="modal-body" id="visitor-gate-details-body">
+        <!-- Rendered dynamically -->
+      </div>
+      <div class="modal-footer" style="display: flex; justify-content: stretch; gap: 12px;">
+        <button class="btn btn-danger" style="flex: 1;" onclick="processGateDecision(false)">Reject Entry</button>
+        <button class="btn btn-primary" style="flex: 2;" onclick="processGateDecision(true)">Allow Entry</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pre-Approve Delivery Modal -->
+  <div class="modal-overlay" id="modal-preapprove-delivery">
+    <div class="modal-card" style="max-width: 440px;">
+      <div class="modal-header">
+        <h3>Pre-Approve Delivery Agent</h3>
+        <button class="btn btn-text btn-icon-only" onclick="closeModal('modal-preapprove-delivery')"><i data-lucide="x"></i></button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label class="form-label">Delivery Company</label>
+          <select class="form-select" id="preapprove-company">
+            <option value="Swiggy">Swiggy (Food/Instamart)</option>
+            <option value="Zomato">Zomato / Blinkit</option>
+            <option value="Amazon">Amazon Prime Delivery</option>
+            <option value="Flipkart">Flipkart Logistics</option>
+            <option value="Dunzo">Dunzo Courier</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Valid Window</label>
+          <select class="form-select" id="preapprove-window">
+            <option value="1">Next 1 Hour</option>
+            <option value="4">Next 4 Hours</option>
+            <option value="24">Today (Next 24 Hours)</option>
+          </select>
+        </div>
+        <p class="text-muted" style="font-size:11px;">Pre-approving creates a digital clearance indicator on the Security Guard's dashboard, allowing the delivery agent to enter without ringing your intercom or phone.</p>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" onclick="closeModal('modal-preapprove-delivery')">Cancel</button>
+        <button class="btn btn-primary" onclick="submitPreApprovedDelivery()">Create Pre-Approval</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOAST ALERTS SYSTEM CONTAINER -->
+  <div id="toast-container"></div>
+
+  <!-- Application Logic JavaScript -->
+  <script src="app.js"></script>
+</body>
+</html>
