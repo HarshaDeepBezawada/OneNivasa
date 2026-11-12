@@ -1,4 +1,4 @@
-/* NIVA Local/Production Server */
+/* OneNivasa Local/Production Server - BZA Tech Solutions */
 
 const http = require('http');
 const fs = require('fs');
@@ -50,7 +50,7 @@ const server = http.createServer((req, res) => {
 
                 res.end(`
                     <h1>404 Not Found</h1>
-                    <p>The requested file was not found on NIVA server.</p>
+                    <p>The requested file was not found on OneNivasa server.</p>
                 `);
 
             } else {
@@ -79,7 +79,9 @@ server.listen(PORT, () => {
 
     console.log(`
 ==================================================
-🚀 NIVA Server is running on port ${PORT}
+🚀 OneNivasa Platform Server running on port ${PORT}
+   Digital Operating System for Gated Communities
+   Powered by BZA Tech Solutions
 ==================================================
 `);
 

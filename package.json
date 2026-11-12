@@ -1,12 +1,31 @@
 {
-  "name": "niva-proptech-platform",
+  "name": "onenivasa",
   "version": "1.0.0",
-  "description": "NIVA Gated Community Digital Operating System Platform Prototype",
+  "description": "OneNivasa - The Modern Digital Operating System for Gated Communities by BZA Tech Solutions",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
     "dev": "node server.js"
   },
-  "author": "NIVA Teams",
-  "license": "MIT"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HarshaDeepBezawada/OneNivasa.git"
+  },
+  "keywords": [
+    "proptech",
+    "gated-community",
+    "smart-community",
+    "society-management",
+    "resident-portal",
+    "visitor-management",
+    "facility-booking",
+    "saas",
+    "bza-tech-solutions"
+  ],
+  "author": "Harsha Deep Bezawada (BZA Tech Solutions)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/HarshaDeepBezawada/OneNivasa/issues"
+  },
+  "homepage": "https://github.com/HarshaDeepBezawada/OneNivasa#readme"
 }
